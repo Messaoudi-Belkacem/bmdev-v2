@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Tech from './components/Tech';
 import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <main className="w-full max-w-3xl mx-auto flex-1 px-6 py-16 space-y-24">
         <section id="home" aria-label="Home"><Hero /></section>
+        <section id="tech" aria-label="Tech"><Tech /></section>
         <section id="projects" aria-label="Projects"><Projects /></section>
         <section id="about" aria-label="About"><About /></section>
         <section id="contact" aria-label="Contact"><Contact /></section>

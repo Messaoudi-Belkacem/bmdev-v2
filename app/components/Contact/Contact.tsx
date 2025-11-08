@@ -1,3 +1,6 @@
+'use client';
+import React from 'react';
+
 // Minimal Contact component
 export default function Contact() {
 	return (
@@ -13,4 +16,3 @@ export default function Contact() {
 		</div>
 	);
 }
-
