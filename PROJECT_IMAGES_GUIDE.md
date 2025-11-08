@@ -8,6 +8,7 @@ public/
   └── projects/
       ├── homeseeker.png
       ├── moviesdb.png
+      ├── unipath.png
       ├── portfolio.png
       ├── ecommerce.png
       ├── analytics.png
@@ -26,10 +27,11 @@ public/
 
 1. **homeseeker.png** - Screenshot of HomeSeeker Android app
 2. **moviesdb.png** - Screenshot of MoviesDB Android app
-3. **portfolio.png** - Screenshot of this portfolio website
-4. **ecommerce.png** - Placeholder for e-commerce project
-5. **analytics.png** - Placeholder for analytics dashboard
-6. **scripts.png** - Placeholder for automation scripts
+3. **unipath.png** - Screenshot of UniPath Admin Panel for ENSSEA
+4. **portfolio.png** - Screenshot of this portfolio website
+5. **ecommerce.png** - Placeholder for e-commerce project
+6. **analytics.png** - Placeholder for analytics dashboard
+7. **scripts.png** - Placeholder for automation scripts
 
 ## 🎨 Tips for Great Project Images:
 

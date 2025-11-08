@@ -55,6 +55,24 @@ export default function Projects() {
       image: "/projects/moviesdb.png"
     },
     {
+      title: "UniPath Admin Panel for ENSSEA",
+      description: "A secure, TypeScript-based administrative panel for the National Higher School of Statistics and Applied Economics (ENSSEA) to centralize academic and operational data. The platform streamlines staff workflows with role-based permissions, intuitive data management (programs, cohorts, records), and analytics dashboards for informed decision-making. It emphasizes performance, accessibility, and maintainability through a modular, component-driven architecture and clean code practices.",
+      category: "Web",
+      technologies: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Recharts", "Axios", "JWT"],
+      features: [
+        "Role-based access control and secure authentication",
+        "Centralized academic and operational data management",
+        "Intuitive data management for programs, cohorts, and records",
+        "Analytics dashboards with data visualization",
+        "RESTful API integration with robust error-handling",
+        "Reusable UI components with form validation",
+        "Responsive design with accessibility best practices",
+        "Modular, component-driven architecture"
+      ],
+      status: "completed",
+      image: "/projects/unipath.png"
+    },
+    {
       title: "Portfolio Website",
       description: "A modern, responsive portfolio website showcasing my projects and skills. Built with Next.js 15 and TypeScript, featuring smooth animations and an intuitive user experience.",
       category: "Web",
@@ -431,7 +449,7 @@ export default function Projects() {
         <div className="text-center mt-8 animate-fade-in"
              style={{animationDelay: '600ms', animationFillMode: 'backwards'}}>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            💡 Use arrows to navigate between projects • Click "Read more" to view full details
+            💡 Use arrows to navigate between projects • Click &ldquo;Read more&rdquo; to view full details
           </p>
         </div>
       </div>
