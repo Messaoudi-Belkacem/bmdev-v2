@@ -34,6 +34,8 @@ import iconSeaborn from "../../assets/icon-seaborn.svg";
 import iconReactQuery from "../../assets/icon-react-query.svg";
 import iconAxios from "../../assets/icon-axios.svg";
 import iconShadcnUI from "../../assets/icon-shadcn-ui.svg";
+import iconComposeMultiplatform from "../../assets/icon-compose-multiplatform.svg";
+import iconSquare from "../../assets/icon-square.svg";
 
 export default function Tech() {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
@@ -96,6 +98,8 @@ export default function Tech() {
       techs: [
         {name: "Android", logo: iconAndroid},
         {name: "Jetpack Compose", logo: iconCompose},
+        {name: "Compose Multiplatform", logo: iconComposeMultiplatform},
+        {name: "Retrofit", logo: iconSquare},
       ]
     },
     {
