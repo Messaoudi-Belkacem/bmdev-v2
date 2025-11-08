@@ -3,8 +3,12 @@
 import {Brain, Globe, Smartphone, Terminal, ChevronLeft, ChevronRight} from "lucide-react";
 import {useState} from "react";
 import Image, { type StaticImageData } from "next/image";
-import iconUnipath from "../../assets/icon-unipath_logo_blue.svg";
+import unipathLogo from "../../assets/logo-unipath.svg";
 import unipathImage from "../../assets/pictures/unipath-image.png";
+import homeSeekerLogo from "../../assets/logo-home-seeker.svg";
+import homeseekerImage from "../../assets/pictures/home-seeker-image.png";
+import moviesBDLogo from "../../assets/logo-moviesdb.svg";
+import moviesDBImage from "../../assets/pictures/moviesdb-image.png";
 
 interface Project {
   title: string;
@@ -41,8 +45,8 @@ export default function Projects() {
         "Contact Sellers: Direct messaging system to communicate with sellers"
       ],
       status: "completed",
-      image: "/projects/homeseeker.png",
-      icon: "/projects/icons/homeseeker-icon.png"
+      image: homeseekerImage,
+      icon: homeSeekerLogo
     },
     {
       title: "MoviesDB",
@@ -56,8 +60,8 @@ export default function Projects() {
         "Preferences persisted with DataStore"
       ],
       status: "completed",
-      image: "/projects/moviesdb.png",
-      icon: "/projects/icons/moviesdb-icon.png"
+      image: moviesDBImage,
+      icon: moviesBDLogo
     },
     {
       title: "UniPath Admin Panel for ENSSEA",
@@ -76,7 +80,7 @@ export default function Projects() {
       ],
       status: "completed",
       image: unipathImage,
-      icon: iconUnipath
+      icon: unipathLogo
     },
     {
       title: "Portfolio Website",
