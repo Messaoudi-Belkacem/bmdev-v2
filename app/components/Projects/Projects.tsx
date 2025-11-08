@@ -2,7 +2,9 @@
 
 import {Brain, Globe, Smartphone, Terminal, ChevronLeft, ChevronRight} from "lucide-react";
 import {useState} from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import iconUnipath from "../../assets/icon-unipath_logo_blue.svg";
+import unipathImage from "../../assets/pictures/unipath-image.png";
 
 interface Project {
   title: string;
@@ -11,7 +13,8 @@ interface Project {
   technologies: string[];
   features: string[];
   status: "completed" | "in-development" | "coming-soon";
-  image?: string;
+  image?: string | StaticImageData;
+  icon?: string | StaticImageData;
   github?: string;
   demo?: string;
 }
@@ -38,7 +41,8 @@ export default function Projects() {
         "Contact Sellers: Direct messaging system to communicate with sellers"
       ],
       status: "completed",
-      image: "/projects/homeseeker.png"
+      image: "/projects/homeseeker.png",
+      icon: "/projects/icons/homeseeker-icon.png"
     },
     {
       title: "MoviesDB",
@@ -52,7 +56,8 @@ export default function Projects() {
         "Preferences persisted with DataStore"
       ],
       status: "completed",
-      image: "/projects/moviesdb.png"
+      image: "/projects/moviesdb.png",
+      icon: "/projects/icons/moviesdb-icon.png"
     },
     {
       title: "UniPath Admin Panel for ENSSEA",
@@ -70,7 +75,8 @@ export default function Projects() {
         "Modular, component-driven architecture"
       ],
       status: "completed",
-      image: "/projects/unipath.png"
+      image: unipathImage,
+      icon: iconUnipath
     },
     {
       title: "Portfolio Website",
@@ -84,7 +90,8 @@ export default function Projects() {
         "Optimized performance with Next.js"
       ],
       status: "in-development",
-      image: "/projects/portfolio.png"
+      image: "/projects/portfolio.png",
+      icon: "/projects/icons/portfolio-icon.png"
     },
     {
       title: "E-Commerce Platform",
@@ -93,7 +100,8 @@ export default function Projects() {
       technologies: ["React", "Node.js", "Express", "MongoDB"],
       features: [],
       status: "coming-soon",
-      image: "/projects/ecommerce.png"
+      image: "/projects/ecommerce.png",
+      icon: "/projects/icons/ecommerce-icon.png"
     },
     {
       title: "Predictive Analytics Dashboard",
@@ -102,7 +110,8 @@ export default function Projects() {
       technologies: ["Python", "PyTorch", "Pandas", "scikit-learn"],
       features: [],
       status: "coming-soon",
-      image: "/projects/analytics.png"
+      image: "/projects/analytics.png",
+      icon: "/projects/icons/analytics-icon.png"
     },
     {
       title: "Automation Scripts",
@@ -111,7 +120,8 @@ export default function Projects() {
       technologies: ["Python", "Bash", "Node.js"],
       features: [],
       status: "coming-soon",
-      image: "/projects/scripts.png"
+      image: "/projects/scripts.png",
+      icon: "/projects/icons/scripts-icon.png"
     }
   ];
 
@@ -245,19 +255,36 @@ export default function Projects() {
                                   `}
                                 />
 
-                                {/* Project Image */}
+                                {/* Project Image with Icon Hover Effect */}
                                 {project.image && (
                                   <div className="relative h-64 w-full bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                                    {/* Background Image - Blurred by default, unblurs on hover */}
                                     <Image
                                       src={project.image}
                                       alt={`${project.title} screenshot`}
                                       fill
-                                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                      className="object-cover transition-all duration-500 group-hover:scale-105 blur-md group-hover:blur-none"
                                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
-                                    {/* Image Overlay on Coming Soon */}
+
+                                    {/* Icon Overlay - Visible by default, sweeps away on hover */}
+                                    {project.icon && (
+                                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/0 transition-all duration-500">
+                                        <div className="relative w-32 h-32 transition-all duration-500 group-hover:translate-x-full group-hover:opacity-0">
+                                          <Image
+                                            src={project.icon}
+                                            alt={`${project.title} icon`}
+                                            fill
+                                            className="object-contain drop-shadow-2xl"
+                                            sizes="128px"
+                                          />
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* Coming Soon Overlay */}
                                     {project.status === "coming-soon" && (
-                                      <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60 backdrop-blur-sm" />
+                                      <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60" />
                                     )}
                                   </div>
                                 )}
