@@ -64,6 +64,25 @@ export default function Projects() {
       icon: moviesBDLogo
     },
     {
+      title: "Dalail Tarbawiyya",
+      description: "A production-grade Android application developed in 100% Kotlin to deliver curated educational guides and learning resources to a global audience. The app features fast content discovery with search and filters, bookmarking and progress tracking, offline-first access with background sync, push notifications for updates, and a fully localized UX with RTL support. Built with a clean, modular architecture focused on performance, accessibility, and maintainability.",
+      category: "Mobile",
+      technologies: ["Kotlin", "Jetpack Compose", "MVVM", "Coroutines", "Flow", "Room", "Hilt", "Retrofit", "Firebase"],
+      features: [
+        "Fast content discovery with search and filters",
+        "Bookmarking and progress tracking",
+        "Offline-first access with background sync",
+        "Push notifications for content updates",
+        "Full internationalization with RTL support",
+        "Clean Architecture with Repository pattern",
+        "Robust error handling and analytics",
+        "CI/CD pipeline with GitHub Actions"
+      ],
+      status: "completed",
+      image: "/projects/dalail.png",
+      icon: "/projects/icons/dalail-icon.png"
+    },
+    {
       title: "UniPath Admin Panel for ENSSEA",
       description: "A secure, TypeScript-based administrative panel for the National Higher School of Statistics and Applied Economics (ENSSEA) to centralize academic and operational data. The platform streamlines staff workflows with role-based permissions, intuitive data management (programs, cohorts, records), and analytics dashboards for informed decision-making. It emphasizes performance, accessibility, and maintainability through a modular, component-driven architecture and clean code practices.",
       category: "Web",
@@ -587,3 +606,4 @@ export default function Projects() {
 * - Favorites and local caching with Room.
 * - Preferences persisted with DataStore.
 */
+

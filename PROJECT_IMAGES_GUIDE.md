@@ -8,6 +8,7 @@ public/
   └── projects/
       ├── homeseeker.png
       ├── moviesdb.png
+      ├── dalail.png
       ├── unipath.png
       ├── portfolio.png
       ├── ecommerce.png
@@ -16,6 +17,7 @@ public/
       └── icons/
           ├── homeseeker-icon.png
           ├── moviesdb-icon.png
+          ├── dalail-icon.png
           ├── unipath-icon.png
           ├── portfolio-icon.png
           ├── ecommerce-icon.png
@@ -56,20 +58,22 @@ public/
 #### Background Images:
 1. **homeseeker.png** - Screenshot of HomeSeeker Android app
 2. **moviesdb.png** - Screenshot of MoviesDB Android app
-3. **unipath.png** - Screenshot of UniPath Admin Panel for ENSSEA
-4. **portfolio.png** - Screenshot of this portfolio website
-5. **ecommerce.png** - Placeholder for e-commerce project
-6. **analytics.png** - Placeholder for analytics dashboard
-7. **scripts.png** - Placeholder for automation scripts
+3. **dalail.png** - Screenshot of Dalail Tarbawiyya Android app
+4. **unipath.png** - Screenshot of UniPath Admin Panel for ENSSEA
+5. **portfolio.png** - Screenshot of this portfolio website
+6. **ecommerce.png** - Placeholder for e-commerce project
+7. **analytics.png** - Placeholder for analytics dashboard
+8. **scripts.png** - Placeholder for automation scripts
 
 #### Icons (in icons/ subfolder):
 1. **homeseeker-icon.png** - App icon or logo for HomeSeeker
 2. **moviesdb-icon.png** - App icon or logo for MoviesDB
-3. **unipath-icon.png** - Logo for UniPath Admin Panel
-4. **portfolio-icon.png** - Personal logo or brand mark
-5. **ecommerce-icon.png** - Shopping cart or store icon
-6. **analytics-icon.png** - Chart or graph icon
-7. **scripts-icon.png** - Terminal or code icon
+3. **dalail-icon.png** - App icon or logo for Dalail Tarbawiyya
+4. **unipath-icon.png** - Logo for UniPath Admin Panel
+5. **portfolio-icon.png** - Personal logo or brand mark
+6. **ecommerce-icon.png** - Shopping cart or store icon
+7. **analytics-icon.png** - Chart or graph icon
+8. **scripts-icon.png** - Terminal or code icon
 
 ## 🎨 Tips for Great Project Images:
 
