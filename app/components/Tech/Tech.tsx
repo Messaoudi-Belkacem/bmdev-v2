@@ -30,6 +30,10 @@ import iconFirebase from "../../assets/icon-firebase.svg";
 import iconMysql from "../../assets/icon-mysql.svg";
 import iconPostgresql from "../../assets/icon-postgressql.svg";
 import iconMongodb from "../../assets/icon-mongodb.svg";
+import iconSeaborn from "../../assets/icon-seaborn.svg";
+import iconReactQuery from "../../assets/icon-react-query.svg";
+import iconAxios from "../../assets/icon-axios.svg";
+import iconShadcnUI from "../../assets/icon-shadcn-ui.svg";
 
 export default function Tech() {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
@@ -44,10 +48,8 @@ export default function Tech() {
         {name: "Pandas", logo: iconPandas},
         {name: "NumPy", logo: iconNumpy},
         {name: "scikit-learn", logo: iconScikitLearn},
-        {name: "Seaborn", logo: null},
-        {name: "PyTorch", logo: iconPytorch},
-        {name: "CNN", logo: null},
-        {name: "RNN", logo: null}
+        {name: "Seaborn", logo: iconSeaborn},
+        {name: "PyTorch", logo: iconPytorch}
       ]
     },
     {
@@ -72,9 +74,9 @@ export default function Tech() {
         {name: "React.js", logo: iconReact},
         {name: "HTML", logo: iconHtml},
         {name: "CSS", logo: iconCss},
-        {name: "React Query", logo: null},
-        {name: "Axios", logo: null},
-        {name: "Shadcn UI", logo: null}
+        {name: "React Query", logo: iconReactQuery},
+        {name: "Axios", logo: iconAxios},
+        {name: "Shadcn UI", logo: iconShadcnUI}
       ]
     },
     {
@@ -84,9 +86,7 @@ export default function Tech() {
       techs: [
         {name: "Spring Boot", logo: iconSpring},
         {name: "Node.js", logo: iconNodejs},
-        {name: "Express.js", logo: iconExpress},
-        {name: "RESTful APIs", logo: null},
-        {name: "JPA", logo: null}
+        {name: "Express.js", logo: iconExpress}
       ]
     },
     {
@@ -96,9 +96,6 @@ export default function Tech() {
       techs: [
         {name: "Android", logo: iconAndroid},
         {name: "Jetpack Compose", logo: iconCompose},
-        {name: "Retrofit", logo: null},
-        {name: "Room", logo: null},
-        {name: "Dagger Hilt", logo: null}
       ]
     },
     {
