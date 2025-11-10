@@ -1,14 +1,18 @@
 "use client";
 
-import {Brain, Globe, Smartphone, Terminal, ChevronLeft, ChevronRight} from "lucide-react";
+import {Brain, ChevronLeft, ChevronRight, Globe, Smartphone, Terminal} from "lucide-react";
 import {useState} from "react";
-import Image, { type StaticImageData } from "next/image";
+import Image, {type StaticImageData} from "next/image";
 import unipathLogo from "../../assets/logo-unipath.svg";
 import unipathImage from "../../assets/pictures/unipath-image.png";
 import homeSeekerLogo from "../../assets/logo-home-seeker.svg";
 import homeseekerImage from "../../assets/pictures/home-seeker-image.png";
 import moviesBDLogo from "../../assets/logo-moviesdb.svg";
 import moviesDBImage from "../../assets/pictures/moviesdb-image.png";
+import dalailTarbawiyyaLogo from "../../assets/logo-dalail-tarbawiyya.svg";
+import dalailTarbawiyyaImage from "../../assets/pictures/dalail-tarbawiyya-image.png";
+import youstockLogo from "../../assets/logo-youstock-mobile.svg";
+import youstockImage from "../../assets/pictures/youstock-mobile-image.png";
 
 interface Project {
   title: string;
@@ -79,8 +83,29 @@ export default function Projects() {
         "CI/CD pipeline with GitHub Actions"
       ],
       status: "completed",
-      image: "/projects/dalail.png",
-      icon: "/projects/icons/dalail-icon.png"
+      image: dalailTarbawiyyaImage,
+      icon: dalailTarbawiyyaLogo
+    },
+    {
+      title: "YOUSTOCK Mobile & Backend",
+      description: "During my computer science internship at YOUINNOVATE, I designed and built a mobile version of YOUSTOCK—a stock management solution for supermarkets, pharmacies, and small businesses—to expand accessibility and usability on smartphones. I developed a RESTful backend API with Spring to bridge the mobile app and the existing system, ensuring secure data synchronization and business logic integration. Additionally, I created a companion Android app for in-store price-verification devices to enhance the customer shopping experience. The project involved tackling real-world challenges around offline-first architecture, inventory sync, role-based permissions, and device compatibility.",
+      category: "Mobile",
+      technologies: ["Kotlin", "Android SDK", "Spring Boot", "Spring Security", "PostgreSQL", "Retrofit", "Room", "Hilt", "JWT", "Docker"],
+      features: [
+        "RESTful backend API with Spring Framework",
+        "Secure data synchronization and business logic integration",
+        "Offline-first architecture with local persistence",
+        "Role-based access control (RBAC) with JWT authentication",
+        "Companion Android app for price-verification devices",
+        "Inventory sync across mobile and existing system",
+        "MVVM architecture with Repository pattern",
+        "Kotlin Coroutines & Flow for async operations",
+        "Barcode scanning integration (ZXing / ML Kit)",
+        "Production-ready with CI/CD pipelines"
+      ],
+      status: "completed",
+      image: youstockImage,
+      icon: youstockLogo
     },
     {
       title: "UniPath Admin Panel for ENSSEA",
@@ -227,12 +252,12 @@ export default function Projects() {
               <div
                 key={group.category}
                 className="animate-slide-up"
-                style={{ animationDelay: `${groupIdx * 150}ms`, animationFillMode: 'backwards' }}
+                style={{animationDelay: `${groupIdx * 150}ms`, animationFillMode: 'backwards'}}
               >
                 {/* Section Header */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`p-3 rounded-xl bg-gradient-to-br ${color} shadow-lg`}>
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-6 h-6 text-white"/>
                   </div>
                   <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
                     {group.category}
@@ -280,7 +305,8 @@ export default function Projects() {
 
                                 {/* Project Image with Icon Hover Effect */}
                                 {project.image && (
-                                  <div className="relative h-64 w-full bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                                  <div
+                                    className="relative h-64 w-full bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
                                     {/* Background Image - Blurred by default, unblurs on hover */}
                                     <Image
                                       src={project.image}
@@ -292,8 +318,10 @@ export default function Projects() {
 
                                     {/* Icon Overlay - Visible by default, sweeps away on hover */}
                                     {project.icon && (
-                                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/0 transition-all duration-500">
-                                        <div className="relative w-32 h-32 transition-all duration-500 group-hover:translate-x-full group-hover:opacity-0">
+                                      <div
+                                        className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/0 transition-all duration-500">
+                                        <div
+                                          className="relative w-32 h-32 transition-all duration-500 group-hover:translate-x-full group-hover:opacity-0">
                                           <Image
                                             src={project.icon}
                                             alt={`${project.title} icon`}
@@ -307,7 +335,7 @@ export default function Projects() {
 
                                     {/* Coming Soon Overlay */}
                                     {project.status === "coming-soon" && (
-                                      <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60" />
+                                      <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60"/>
                                     )}
                                   </div>
                                 )}
@@ -560,50 +588,3 @@ export default function Projects() {
     </div>
   );
 }
-
-/*
-* # HomeSeeker
-* Home Seeker is an Android app developed as a school project to simplify finding and managing home
-* listings. Built with Jetpack Compose, it delivers a responsive and user-friendly interface. I independently
-* implemented the backend using Java Spring and MySQL, focusing on efficient and scalable data
-* management. This project allowed me to enhance my technical skills by exploring modern technologies
-* and combining intuitive design with robust functionality.
-* ## Technologies Used
-* - Android Development with Jetpack Compose
-* - Backend Development with Java Spring
-* - Database Management with MySQL
-* ## Features
-* - User Authentication: Secure login and registration system.
-* - Home Listings: Browse, search, and filter home listings.
-* - Favorites: Save favorite listings for easy access.
-* - Contact Sellers: Direct messaging system to communicate with sellers.
-*/
-
-/*
-* # MoviesDB
-* MoviesDB is an Android app developed to explore modern Android tools and libraries while
-* providing a seamless way to browse and manage movie data. Built with Jetpack Compose, the app
-* features a modern, declarative UI and leverages Dagger Hilt for dependency injection,
-* Retrofit and OkHttp for API interactions, and Coil for fast image loading. Paging 3 enables
-* smooth pagination from the TMDB API, while Room and DataStore handle local and preference data.
-* Lottie animations and ConstraintLayout Compose add dynamic visuals and complex layouts,
-* resulting in a polished and responsive user experience. This project helped deepen skills with
-* contemporary Android tooling and address challenges such as TMDB API rate limits and pagination.
-* ## Technologies Used
-* - Kotlin
-* - Jetpack Compose
-* - Retrofit \& OkHttp
-* - Room
-* - Dagger Hilt
-* - Coil
-* - Paging 3
-* - DataStore
-* - Lottie Animations
-* - ConstraintLayout Compose
-* ## Features
-* - Browse and search latest movies from TMDB.
-* - Paging and smooth scrolling with remote data.
-* - Favorites and local caching with Room.
-* - Preferences persisted with DataStore.
-*/
-
