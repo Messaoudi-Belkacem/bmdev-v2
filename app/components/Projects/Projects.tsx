@@ -152,6 +152,25 @@ export default function Projects() {
       icon: "/projects/icons/ecommerce-icon.png"
     },
     {
+      title: "PDF Summarization Web App",
+      description: "An AI-powered web application that automatically generates concise summaries from PDF documents using state-of-the-art Natural Language Processing and Deep Learning technologies. Implemented text chunking algorithm to handle documents exceeding model token limits, utilized transfer learning with pre-trained BART model for abstractive summarization, and optimized pipeline for efficient inference and memory management. Created end-to-end solution from file upload to summary generation.",
+      category: "AI & Data Science",
+      technologies: ["Python", "Gradio", "Hugging Face Transformers", "BART", "PyTorch", "PyPDF2"],
+      features: [
+        "Intelligent text extraction from PDF documents",
+        "Automatic summarization using transformer-based models",
+        "Handles long documents through smart text chunking",
+        "Clean, intuitive user interface with drag-and-drop functionality",
+        "Real-time processing with visual feedback",
+        "Transfer learning with pre-trained BART model for abstractive summarization",
+        "Optimized pipeline for efficient inference and memory management",
+        "Deployed on Hugging Face Spaces"
+      ],
+      status: "completed",
+      image: "/projects/pdf-summarization.png",
+      icon: "/projects/icons/pdf-summarization-icon.png"
+    },
+    {
       title: "Predictive Analytics Dashboard",
       description: "A machine learning powered dashboard for data visualization and predictive analytics using Python and modern ML libraries.",
       category: "AI & Data Science",
