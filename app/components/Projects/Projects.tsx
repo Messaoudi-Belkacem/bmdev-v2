@@ -13,6 +13,8 @@ import dalailTarbawiyyaLogo from "../../assets/logo-dalail-tarbawiyya.svg";
 import dalailTarbawiyyaImage from "../../assets/pictures/dalail-tarbawiyya-image.png";
 import youstockLogo from "../../assets/logo-youstock-mobile.svg";
 import youstockImage from "../../assets/pictures/youstock-mobile-image.png";
+import myPdfSummarizerImage from "../../assets/pictures/my-pdf-summarizer-image.png";
+import myPdfSummarizerLogo from "../../assets/logo-my-pdf-summarizer.svg";
 
 interface Project {
   title: string;
@@ -167,8 +169,8 @@ export default function Projects() {
         "Deployed on Hugging Face Spaces"
       ],
       status: "completed",
-      image: "/projects/pdf-summarization.png",
-      icon: "/projects/icons/pdf-summarization-icon.png"
+      image: myPdfSummarizerImage,
+      icon: myPdfSummarizerLogo
     },
     {
       title: "Predictive Analytics Dashboard",
