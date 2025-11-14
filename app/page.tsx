@@ -10,12 +10,14 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 dark:bg-black font-sans">
       <Header />
-      <main className="w-full max-w-3xl mx-auto flex-1 px-6 py-16 space-y-24">
-        <section id="home" aria-label="Home"><Hero /></section>
-        <section id="tech" aria-label="Tech"><Tech /></section>
-        <section id="projects" aria-label="Projects"><Projects /></section>
-        <section id="about" aria-label="About"><About /></section>
-        <section id="contact" aria-label="Contact"><Contact /></section>
+      <main className="w-full flex-1">
+        <section id="home" aria-label="Home" className="w-full"><Hero /></section>
+        <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
+          <section id="tech" aria-label="Tech"><Tech /></section>
+          <section id="projects" aria-label="Projects"><Projects /></section>
+          <section id="about" aria-label="About"><About /></section>
+          <section id="contact" aria-label="Contact"><Contact /></section>
+        </div>
       </main>
       <Footer />
     </div>
