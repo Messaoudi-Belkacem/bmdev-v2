@@ -173,6 +173,49 @@ export default function Projects() {
       icon: myPdfSummarizerLogo
     },
     {
+      title: "Leaf Edge Classification using Deep Learning",
+      description: "Developed a high-accuracy binary image classifier to distinguish between smooth and serrated leaf edges using transfer learning with ConvNeXt-Tiny architecture. Implemented progressive unfreezing strategy, training the classifier head first (8 epochs), then fine-tuning the backbone with differential learning rates (16 epochs). Applied data augmentation (random flips, rotations, crops, erasing) and mixed-precision training for optimization. Achieved comprehensive evaluation metrics (precision, recall, F1, AUC-ROC, Cohen's Kappa). Deployed as an interactive web application using Streamlit, enabling real-time inference with confidence scores and probability visualizations.",
+      category: "AI & Data Science",
+      technologies: ["Python", "PyTorch", "ConvNeXt", "Streamlit", "scikit-learn", "AMP"],
+      features: [
+        "Binary image classification for smooth vs serrated leaf edges",
+        "Transfer learning with ConvNeXt-Tiny architecture",
+        "Two-phase progressive unfreezing with differential learning rates (1e-5 for backbone, 1e-4 for classifier)",
+        "Advanced data augmentation (random flips, rotations, crops, erasing)",
+        "Mixed-precision training (AMP) for 2x faster training on GPU",
+        "Stratified train/val/test splitting to maintain class distribution",
+        "Comprehensive evaluation pipeline with confusion matrix, ROC curves, and classification reports",
+        "Real-time inference with confidence scores and probability visualizations",
+        "Production-ready Streamlit web application for deployment"
+      ],
+      status: "completed",
+      image: "/projects/leaf-classification.png",
+      icon: "/projects/icons/leaf-icon.png"
+    },
+    {
+      title: "Car Detection System with Deep Residual CNN",
+      description: "Developed an end-to-end binary image classification system to detect vehicles in images using a custom Residual Convolutional Neural Network (ResNet-inspired architecture). The project demonstrates proficiency in deep learning model development, training optimization, and deployment. Designed and implemented a 5-layer ResidualBlock CNN architecture with skip connections, achieving high accuracy. Engineered comprehensive data augmentation pipeline with 10+ transformations to improve model generalization and reduce overfitting. Optimized training process using AdamW optimizer with OneCycleLR scheduling, BCELoss, and dropout regularization.",
+      category: "AI & Data Science",
+      technologies: ["Python", "PyTorch", "Streamlit", "Computer Vision", "ResNet", "Deep Learning"],
+      features: [
+        "Custom ResNet-style architecture (3→32→64→128→256→512 channels) with 5 residual blocks",
+        "Skip connections for improved gradient flow and training stability",
+        "Comprehensive data augmentation: random flips, rotations, perspective warping, color jittering",
+        "AdamW optimizer with OneCycleLR scheduling (0.00075-0.00085 learning rate range)",
+        "BCELoss with dropout regularization (0.5-0.7) and early stopping",
+        "Batch normalization and MaxPooling layers for feature extraction",
+        "Trained for 30 epochs with batch size 32 and dynamic learning rate scheduling",
+        "ImageNet-style normalization with 224×224 input resolution",
+        "Binary classification (car/no-car) with 80/20 train-validation split",
+        "Thorough evaluation with accuracy, precision, recall, F1-score, and confusion matrix",
+        "Overfitting monitoring through training/validation gap analysis",
+        "Interactive Streamlit web application with real-time image upload and prediction"
+      ],
+      status: "completed",
+      image: "/projects/car-detection.png",
+      icon: "/projects/icons/car-icon.png"
+    },
+    {
       title: "Predictive Analytics Dashboard",
       description: "A machine learning powered dashboard for data visualization and predictive analytics using Python and modern ML libraries.",
       category: "AI & Data Science",
