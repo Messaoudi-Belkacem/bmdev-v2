@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowDown, Github, Linkedin, Mail, Code2, Smartphone, Brain } from "lucide-react";
+import { ArrowDown, Mail, Code2, Smartphone, Brain } from "lucide-react";
 import { useState, useEffect } from "react";
+import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 export default function Hero() {
-	const [mounted, setMounted] = useState(false);
+	const [, setMounted] = useState(false);
 	const [currentRole, setCurrentRole] = useState(0);
 
 	const roles = [
@@ -19,10 +20,8 @@ export default function Hero() {
 			setCurrentRole((prev) => (prev + 1) % roles.length);
 		}, 3000);
 		return () => clearInterval(interval);
-	}, []);
-
-	const CurrentIcon = roles[currentRole].icon;
-
+	}, [roles.length]);
+	
 	return (
 		<div className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12 overflow-hidden">
 			{/* Background Elements */}
@@ -43,8 +42,8 @@ export default function Hero() {
 
 				{/* Main Heading */}
 				<h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-					<span className="text-zinc-900 dark:text-zinc-100">Hi, I'm </span>
-					<span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent animate-gradient">
+					<span className="text-zinc-900 dark:text-zinc-100">Hi, I&#39;m </span>
+					<span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent animate-gradient">
 						Belkacem Messaoudi
 					</span>
 				</h1>
@@ -61,7 +60,7 @@ export default function Hero() {
 										: 'opacity-0 absolute inset-0 translate-y-4'
 								}`}
 							>
-								<div className={`p-2 rounded-lg bg-gradient-to-br ${role.color} shadow-lg`}>
+								<div className={`p-2 rounded-lg bg-linear-to-br ${role.color} shadow-lg`}>
 									<role.icon className="w-6 h-6 text-white" />
 								</div>
 								<p className="text-2xl sm:text-3xl font-semibold text-zinc-700 dark:text-zinc-300">
@@ -84,13 +83,13 @@ export default function Hero() {
 				<div className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
 					<a
 						href="#projects"
-						className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+						className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
 					>
 						<span className="relative z-10 flex items-center gap-2">
 							View Projects
 							<ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
 						</span>
-						<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+						<div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 					</a>
 
 					<a
@@ -104,25 +103,25 @@ export default function Hero() {
 				{/* Social Links */}
 				<div className="flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}>
 					<a
-						href="https://github.com/yourusername"
+						href="https://github.com/Messaoudi-Belkacem"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:scale-110 transition-all duration-300 border border-zinc-200 dark:border-zinc-700"
 						aria-label="GitHub"
 					>
-						<Github className="w-5 h-5" />
+						<SiGithub className="w-5 h-5" />
 					</a>
 					<a
-						href="https://linkedin.com/in/yourusername"
+						href="https://www.linkedin.com/in/belkacem-messaoudi-a95591230/"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:scale-110 transition-all duration-300 border border-zinc-200 dark:border-zinc-700"
 						aria-label="LinkedIn"
 					>
-						<Linkedin className="w-5 h-5" />
+						<SiLinkedin className="w-5 h-5" />
 					</a>
 					<a
-						href="mailto:your.email@example.com"
+						href="mailto:wailmessaoudi806@gmail.com"
 						className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:scale-110 transition-all duration-300 border border-zinc-200 dark:border-zinc-700"
 						aria-label="Email"
 					>
@@ -175,29 +174,13 @@ export default function Hero() {
 
 				@keyframes gradient {
 					0%, 100% {
-						background-position: 0% 50%;
+						background-position: 0 50%;
 					}
 					50% {
 						background-position: 100% 50%;
 					}
 				}
 
-				.animate-fade-in-down {
-					animation: fade-in-down 0.6s ease-out;
-				}
-
-				.animate-fade-in-up {
-					animation: fade-in-up 0.6s ease-out;
-				}
-
-				.animate-pulse-slow {
-					animation: pulse-slow 4s ease-in-out infinite;
-				}
-
-				.animate-gradient {
-					background-size: 200% 200%;
-					animation: gradient 3s ease infinite;
-				}
 			`}</style>
 		</div>
 	);
