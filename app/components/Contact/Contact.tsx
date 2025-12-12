@@ -15,8 +15,19 @@ export default function Contact() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Handle form submission
-		console.log('Form submitted:', formData);
+
+		// Open email client with pre-filled form data
+		window.location.href = `mailto:wailmessaoudi806@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+			`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+		)}`;
+
+		// Reset form
+		setFormData({
+			name: '',
+			email: '',
+			subject: 'Job Opportunity',
+			message: ''
+		});
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
