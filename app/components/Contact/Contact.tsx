@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Mail, Linkedin, Github, Send, MapPin, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Send, MapPin, Clock } from 'lucide-react';
+
+import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -58,7 +60,7 @@ export default function Contact() {
 								href="mailto:your.email@example.com" 
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
 							>
-								<div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+								<div className="w-12 h-12 rounded-lg bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
 									<Mail className="w-6 h-6 text-white" />
 								</div>
 								<div>
@@ -73,8 +75,8 @@ export default function Contact() {
 								rel="noopener noreferrer"
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-blue-600 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/10"
 							>
-								<div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-									<Linkedin className="w-6 h-6 text-white" />
+								<div className="w-12 h-12 rounded-lg bg-linear-to-br from-blue-600 to-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+									<SiLinkedin className="w-6 h-6 text-white" />
 								</div>
 								<div>
 									<p className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn</p>
@@ -88,8 +90,8 @@ export default function Contact() {
 								rel="noopener noreferrer"
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
 							>
-								<div className="w-12 h-12 rounded-lg bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-									<Github className="w-6 h-6 text-white" />
+								<div className="w-12 h-12 rounded-lg bg-linear-to-br from-zinc-700 to-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+									<SiGithub className="w-6 h-6 text-white" />
 								</div>
 								<div>
 									<p className="font-medium text-zinc-900 dark:text-zinc-100">GitHub</p>
@@ -99,7 +101,7 @@ export default function Contact() {
 						</div>
 
 						{/* Additional Info */}
-						<div className="p-6 rounded-xl bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-800/30 border border-zinc-200 dark:border-zinc-700 space-y-3">
+						<div className="p-6 rounded-xl bg-linear-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/50 dark:to-zinc-800/30 border border-zinc-200 dark:border-zinc-700 space-y-3">
 							<div className="flex items-center gap-3 text-zinc-700 dark:text-zinc-300">
 								<MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
 								<span>Batna, Algeria</span>
@@ -194,7 +196,7 @@ export default function Contact() {
 							{/* Submit Button */}
 							<button
 								type="submit"
-								className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+								className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
 							>
 								<Send className="w-5 h-5" />
 								Send Message
