@@ -3,6 +3,7 @@
 import {Brain, ChevronLeft, ChevronRight, Globe, Smartphone, Terminal} from "lucide-react";
 import {useState} from "react";
 import {type StaticImageData} from "next/image";
+import {motion} from "framer-motion";
 import projectsData from "../../data/projects.json";
 import ProjectItem from "./ProjectItem";
 
@@ -183,63 +184,116 @@ export default function Projects() {
                   {/* Navigation Buttons */}
                   {group.projects.length > 1 && (
                     <>
-                      <button
+                      <motion.button
                         onClick={() => prevSlide(group.category)}
-                        className={`
+                        className="
                           absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4
-                          p-3 rounded-full bg-white dark:bg-zinc-800 
-                          border-2 border-zinc-200 dark:border-zinc-700
-                          shadow-lg hover:shadow-xl
-                          transition-all duration-300
-                          hover:scale-110 hover:bg-linear-to-br hover:${color}
-                          hover:border-transparent hover:text-white
-                          z-10
-                          group/btn
-                        `}
+                          p-3 rounded-full
+                          bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm
+                          border-2 border-zinc-300 dark:border-zinc-600
+                          shadow-lg
+                          disabled:opacity-50 disabled:cursor-not-allowed
+                          z-20
+                        "
+                        whileHover={{
+                          scale: 1.1,
+                          borderColor: 'rgb(59, 130, 246)',
+                          boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
                         aria-label="Previous project"
                       >
-                        <ChevronLeft
-                          className="w-6 h-6 text-zinc-700 dark:text-zinc-300 group-hover/btn:text-white"/>
-                      </button>
-                      <button
+                        <motion.div
+                          whileHover={{ x: -2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronLeft className="w-6 h-6 text-zinc-700 dark:text-zinc-300"/>
+                        </motion.div>
+                      </motion.button>
+                      <motion.button
                         onClick={() => nextSlide(group.category)}
-                        className={`
+                        className="
                           absolute right-0 top-1/2 -translate-y-1/2 translate-x-4
-                          p-3 rounded-full bg-white dark:bg-zinc-800 
-                          border-2 border-zinc-200 dark:border-zinc-700
-                          shadow-lg hover:shadow-xl
-                          transition-all duration-300
-                          hover:scale-110 hover:bg-linear-to-br hover:${color}
-                          hover:border-transparent hover:text-white
-                          z-10
-                          group/btn
-                        `}
+                          p-3 rounded-full
+                          bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm
+                          border-2 border-zinc-300 dark:border-zinc-600
+                          shadow-lg
+                          disabled:opacity-50 disabled:cursor-not-allowed
+                          z-20
+                        "
+                        whileHover={{
+                          scale: 1.1,
+                          borderColor: 'rgb(59, 130, 246)',
+                          boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
                         aria-label="Next project"
                       >
-                        <ChevronRight
-                          className="w-6 h-6 text-zinc-700 dark:text-zinc-300 group-hover/btn:text-white"/>
-                      </button>
+                        <motion.div
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronRight className="w-6 h-6 text-zinc-700 dark:text-zinc-300"/>
+                        </motion.div>
+                      </motion.button>
                     </>
                   )}
 
                   {/* Dots Indicator */}
                   {group.projects.length > 1 && (
-                    <div className="flex justify-center gap-2 mt-6">
+                    <motion.div
+                      className="flex justify-center items-center gap-2 mt-8"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                    >
                       {group.projects.map((_, idx) => (
-                        <button
+                        <motion.button
                           key={idx}
                           onClick={() => goToSlide(group.category, idx)}
-                          className={`
-                            h-2 rounded-full transition-all duration-300
-                            ${carouselIndexes[group.category] === idx
-                            ? `w-8 bg-linear-to-r ${color}`
-                            : 'w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
-                          }
-                          `}
+                          className="relative rounded-full overflow-hidden"
+                          whileHover={{ scale: 1.25 }}
+                          whileTap={{ scale: 0.9 }}
                           aria-label={`Go to project ${idx + 1}`}
-                        />
+                          aria-current={carouselIndexes[group.category] === idx ? 'true' : 'false'}
+                        >
+                          <motion.div
+                            className="rounded-full"
+                            initial={false}
+                            animate={{
+                              width: carouselIndexes[group.category] === idx ? 32 : 10,
+                              height: 10,
+                              backgroundColor: carouselIndexes[group.category] === idx
+                                ? 'rgb(37, 99, 235)'
+                                : 'rgb(212, 212, 216)'
+                            }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 300,
+                              damping: 25
+                            }}
+                          />
+                          {carouselIndexes[group.category] === idx && (
+                            <motion.div
+                              className="absolute inset-0 rounded-full"
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              exit={{ scale: 0.8, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              style={{
+                                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+                              }}
+                            />
+                          )}
+                        </motion.button>
                       ))}
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               </div>
