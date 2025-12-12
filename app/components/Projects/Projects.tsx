@@ -18,6 +18,8 @@ import youstockLogo from "../../assets/logo-youstock-mobile.svg";
 import youstockImage from "../../assets/pictures/youstock-mobile-image.png";
 import myPdfSummarizerImage from "../../assets/pictures/my-pdf-summarizer-image.png";
 import myPdfSummarizerLogo from "../../assets/logo-my-pdf-summarizer.svg";
+import quizlyLogo from "../../assets/logo-quizly.svg";
+import quizlyImage from "../../assets/pictures/quizly-image.png";
 
 interface Project {
   id: string;
@@ -58,6 +60,8 @@ export default function Projects() {
     "/assets/logo-youstock-mobile.svg": youstockLogo,
     "/assets/pictures/my-pdf-summarizer-image.png": myPdfSummarizerImage,
     "/assets/logo-my-pdf-summarizer.svg": myPdfSummarizerLogo,
+    "/assets/pictures/quizly-image.png": quizlyImage,
+    "/assets/logo-quizly.svg": quizlyLogo
   };
 
   // Transform JSON data to use static imports where available

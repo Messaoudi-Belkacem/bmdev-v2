@@ -254,6 +254,26 @@
     "demo": null,
     "date": "2025-03",
     "featured": false
+  },
+  {
+    "id": "quizly",
+    "title": "Quizly",
+    "description": "Quizly is a Kotlin-based mobile quiz application focused on creating and taking multiple-choice quizzes with progress tracking and offline support.",
+    "category": "Mobile",
+    "technologies": ["Kotlin", "Android", "Jetpack Compose"],
+    "features": [
+      "Multiple-choice quizzes",
+      "Timed quiz mode",
+      "Progress and score tracking",
+      "Local storage for offline play",
+      "Quiz history and basic statistics"
+    ],
+    "status": "completed",
+    "image": "/assets/pictures/quizly-image.png",
+    "icon": "/assets/logo-quizly.svg",
+    "github": "https://github.com/Messaoudi-Belkacem/Quizly",
+    "demo": "",
+    "date": "2025-12",
+    "featured": true
   }
 ]
-
