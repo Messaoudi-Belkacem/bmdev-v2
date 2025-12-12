@@ -57,7 +57,7 @@ export default function Contact() {
 							</h3>
 							
 							<a 
-								href="mailto:your.email@example.com" 
+								href="mailto:wailmessaoudi806@gmail.com"
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
 							>
 								<div className="w-12 h-12 rounded-lg bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -65,12 +65,12 @@ export default function Contact() {
 								</div>
 								<div>
 									<p className="font-medium text-zinc-900 dark:text-zinc-100">Email</p>
-									<p className="text-sm text-zinc-600 dark:text-zinc-400">your.email@example.com</p>
+									<p className="text-sm text-zinc-600 dark:text-zinc-400">wailmessaoudi806@gmail.com</p>
 								</div>
 							</a>
 
 							<a 
-								href="https://linkedin.com/in/yourprofile" 
+								href="https://www.linkedin.com/in/belkacem-messaoudi-a95591230/"
 								target="_blank" 
 								rel="noopener noreferrer"
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-blue-600 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/10"
@@ -85,7 +85,7 @@ export default function Contact() {
 							</a>
 
 							<a 
-								href="https://github.com/yourusername" 
+								href="https://github.com/Messaoudi-Belkacem"
 								target="_blank" 
 								rel="noopener noreferrer"
 								className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"

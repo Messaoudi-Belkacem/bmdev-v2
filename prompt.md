@@ -1,7 +1,13 @@
-**Design a contact section for my developer portfolio. The goal is to make it simple, professional, and frictionless for recruiters or clients to reach me. Use a clean, two-column layout with inviting messaging. The primary elements must be:**
+**Design a clean and functional footer for my developer portfolio. The footer should act as a consistent navigation anchor on every page. Key elements to include:**
 
-- **Left Column:** Eye-catching headline "Let's Build the Next Intelligent Interface", a short inviting message, and prominent clickable icons for Email, LinkedIn, and GitHub with clear labels.
-- **Right Column:** A minimal embedded contact form with fields for Name, Email, Subject (with dropdown options: Freelance Project, Job Opportunity, Collaboration, Other), and Message. Include a polished "Send Message" button.
-- **Subtle Elements:** A small note on response time and my location/timezone (Batna, Algeria, CET). Ensure the overall aesthetic aligns with a modern tech portfolio.
+- **Left Section:** A simple, bold version of my name ("Messaoudi B." or "Belkacem") or a small monogram/logo, acting as a quick link back to the homepage.
 
-**Keep it visually balanced, mobile-responsive, and focused on usability.**
+- **Center Section (Navigation Links):** A concise horizontal list of primary site sections: **Home, About, Projects, Contact**. These should be clickable and have a subtle hover effect.
+
+- **Right Section (Social Links):** Visually consistent icons for my three key professional platforms: **Email, GitHub, LinkedIn**. Each icon should open the respective link in a new tab.
+
+- **Bottom Bar:** A thin, separated bar containing:
+    1.  A short copyright notice: "© [Current Year] Messaoudi Belkacem. All rights reserved."
+    2.  A subtle, small-text note on the right: "Built with [Coffee/Passion] & [React/Next.js/your tech]."
+
+**Overall Aesthetic:** The footer should be minimal, with subtle background contrast, fine dividers, and excellent spacing. It must feel lightweight, non-intrusive, and fully responsive, collapsing elegantly on mobile (stacking the center and right sections vertically). Typography and colors must match the site's main design system.
