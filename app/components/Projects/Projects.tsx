@@ -203,41 +203,55 @@ export default function Projects() {
                                 />
 
                                 {/* Project Image with Icon Hover Effect */}
-                                {project.image && (
-                                  <div
-                                    className="relative h-64 w-full bg-linear-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
-                                    {/* Background Image - Blurred by default, unblurs on hover */}
-                                    <Image
-                                      src={project.image}
-                                      alt={`${project.title} screenshot`}
-                                      fill
-                                      className="object-cover transition-all duration-500 group-hover:scale-105 blur-md group-hover:blur-none"
-                                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
+                                <div
+                                  className="relative h-64 w-full bg-linear-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                                  {project.image && typeof project.image !== 'string' || (typeof project.image === 'string' && !project.image.startsWith('/projects/')) ? (
+                                    <>
+                                      {/* Background Image - Blurred by default, unblurs on hover */}
+                                      <Image
+                                        src={project.image!}
+                                        alt={`${project.title} screenshot`}
+                                        fill
+                                        className="object-cover transition-all duration-500 group-hover:scale-105 blur-md group-hover:blur-none"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                      />
 
-                                    {/* Icon Overlay - Visible by default, sweeps away on hover */}
-                                    {project.icon && (
-                                      <div
-                                        className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/0 transition-all duration-500">
+                                      {/* Icon Overlay - Visible by default, sweeps away on hover */}
+                                      {project.icon && (typeof project.icon !== 'string' || !project.icon.startsWith('/projects/')) && (
                                         <div
-                                          className="relative w-32 h-32 transition-all duration-500 group-hover:translate-x-full group-hover:opacity-0">
-                                          <Image
-                                            src={project.icon}
-                                            alt={`${project.title} icon`}
-                                            fill
-                                            className="object-contain drop-shadow-2xl"
-                                            sizes="128px"
-                                          />
+                                          className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/0 transition-all duration-500">
+                                          <div
+                                            className="relative w-32 h-32 transition-all duration-500 group-hover:translate-x-full group-hover:opacity-0">
+                                            <Image
+                                              src={project.icon}
+                                              alt={`${project.title} icon`}
+                                              fill
+                                              className="object-contain drop-shadow-2xl"
+                                              sizes="128px"
+                                            />
+                                          </div>
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    /* Placeholder for missing images */
+                                    <div className={`absolute inset-0 bg-linear-to-br ${color} opacity-10 dark:opacity-20`}>
+                                      <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="text-center">
+                                          <Icon className="w-24 h-24 mx-auto text-zinc-400 dark:text-zinc-600 mb-4" />
+                                          <p className="text-sm text-zinc-500 dark:text-zinc-500 font-medium">
+                                            {project.title}
+                                          </p>
                                         </div>
                                       </div>
-                                    )}
+                                    </div>
+                                  )}
 
-                                    {/* Coming Soon Overlay */}
-                                    {project.status === "coming-soon" && (
-                                      <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60"/>
-                                    )}
-                                  </div>
-                                )}
+                                  {/* Coming Soon Overlay */}
+                                  {project.status === "coming-soon" && (
+                                    <div className="absolute inset-0 bg-zinc-900/40 dark:bg-zinc-950/60"/>
+                                  )}
+                                </div>
 
                                 {/* Project Content */}
                                 <div className="p-6">
