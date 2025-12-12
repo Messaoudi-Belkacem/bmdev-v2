@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { SiLinkedin, SiGithub } from 'react-icons/si';
 
 export default function Hero() {
-	const [, setMounted] = useState(false);
 	const [currentRole, setCurrentRole] = useState(0);
 
 	const roles = [
@@ -15,7 +14,6 @@ export default function Hero() {
 	];
 
 	useEffect(() => {
-		setMounted(true);
 		const interval = setInterval(() => {
 			setCurrentRole((prev) => (prev + 1) % roles.length);
 		}, 3000);
@@ -174,7 +172,7 @@ export default function Hero() {
 
 				@keyframes gradient {
 					0%, 100% {
-						background-position: 0 50%;
+						background-position: 0% 50%;
 					}
 					50% {
 						background-position: 100% 50%;
