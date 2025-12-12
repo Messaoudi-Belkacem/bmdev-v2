@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Project {
   id: string;
@@ -38,24 +39,18 @@ export default function ProjectItem({ project, isExpanded, onToggleExpand, color
   return (
     <div className="w-full shrink-0 px-2 py-4">
       <div className="group relative animate-scale-in max-w-3xl mx-auto">
-        <div
+        <motion.div
+          layout
+          transition={{ duration: 0.3 }}
           className={`
             relative rounded-xl border-2 border-zinc-200 dark:border-zinc-800
             bg-white dark:bg-zinc-900
             transition-all duration-300 ease-out
-            hover:border-transparent hover:shadow-2xl
+            hover:shadow-2xl
             overflow-hidden
             ${isExpanded ? 'ring-2 ring-blue-500 dark:ring-blue-400' : ''}
           `}
         >
-          {/* Gradient border effect on hover */}
-          <div
-            className={`
-              absolute inset-0 rounded-xl bg-linear-to-br ${color}
-              opacity-0 group-hover:opacity-100 transition-opacity duration-300
-              -z-10 blur-sm
-            `}
-          />
 
           {/* Project Image with Icon Hover Effect */}
           <div className="relative h-64 w-full bg-linear-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
@@ -123,24 +118,30 @@ export default function ProjectItem({ project, isExpanded, onToggleExpand, color
 
             {/* Description */}
             <p
-              className={`text-sm text-zinc-600 dark:text-zinc-400 mb-4 transition-all duration-300 cursor-pointer ${isExpanded ? '' : 'line-clamp-3'}`}
+              className={`text-sm text-zinc-600 dark:text-zinc-400 mb-4 cursor-pointer transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}
               onClick={onToggleExpand}
             >
               {project.description}
             </p>
 
             {/* Read More Button */}
-            {!isExpanded && project.description.length > 150 && (
-              <button
-                onClick={onToggleExpand}
-                className="text-sm text-blue-600 dark:text-blue-400 hover:underline mb-4 transition-opacity duration-300"
-              >
-                Read more...
-              </button>
-            )}
+            <AnimatePresence>
+              {!isExpanded && project.description.length > 150 && (
+                <motion.button
+                  onClick={onToggleExpand}
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline mb-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Read more...
+                </motion.button>
+              )}
+            </AnimatePresence>
 
             {/* Technologies */}
-            <div className="mb-4">
+            <motion.div layout className="mb-4">
               <div className="flex flex-wrap gap-2">
                 {project.technologies.slice(0, isExpanded ? undefined : 6).map((tech) => (
                   <span
@@ -156,34 +157,51 @@ export default function ProjectItem({ project, isExpanded, onToggleExpand, color
                   </span>
                 )}
               </div>
-            </div>
+            </motion.div>
 
             {/* Expanded Features */}
-            {isExpanded && project.features.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-800 animate-fade-in transition-all duration-300 ease-in-out">
-                <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">
-                  Key Features:
-                </h4>
-                <ul className="space-y-2">
-                  {project.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2 opacity-0 animate-fade-in" style={{ animationDelay: `${i * 50}ms`, animationFillMode: 'forwards' }}>
-                      <span className="text-blue-500 mt-0.5 text-lg">•</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <AnimatePresence>
+              {isExpanded && project.features.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-800 overflow-hidden"
+                >
+                  <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">
+                    Key Features:
+                  </h4>
+                  <ul className="space-y-2">
+                    {project.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2"
+                      >
+                        <span className="text-blue-500 mt-0.5 text-lg">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Collapse Button */}
-            {isExpanded && (
-              <button
-                onClick={onToggleExpand}
-                className="mt-4 text-sm text-blue-600 dark:text-blue-400 hover:underline transition-opacity duration-300"
-              >
-                Show less
-              </button>
-            )}
+            <AnimatePresence>
+              {isExpanded && (
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={onToggleExpand}
+                  className="mt-4 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Show less
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Coming Soon Overlay */}
@@ -206,7 +224,7 @@ export default function ProjectItem({ project, isExpanded, onToggleExpand, color
               `}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
