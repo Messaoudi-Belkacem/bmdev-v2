@@ -300,7 +300,7 @@ export default function Projects() {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h2
-            className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            className="text-4xl font-bold mb-3 bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             Projects
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400">A showcase of my work and experiments</p>
@@ -320,7 +320,7 @@ export default function Projects() {
               >
                 {/* Section Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${color} shadow-lg`}>
+                  <div className={`p-3 rounded-xl bg-linear-to-br ${color} shadow-lg`}>
                     <Icon className="w-6 h-6 text-white"/>
                   </div>
                   <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -338,13 +338,13 @@ export default function Projects() {
                         transform: `translateX(-${carouselIndexes[group.category] * 100}%)`
                       }}
                     >
-                      {group.projects.map((project, idx) => {
+                      {group.projects.map((project) => {
                         const isExpanded = expandedProject === project.title;
 
                         return (
                           <div
                             key={project.title}
-                            className="w-full flex-shrink-0 px-2"
+                            className="w-full shrink-0 px-2"
                           >
                             <div className="group relative animate-scale-in max-w-3xl mx-auto">
                               <div
@@ -361,7 +361,7 @@ export default function Projects() {
                                 {/* Gradient border effect on hover */}
                                 <div
                                   className={`
-                                    absolute inset-0 rounded-xl bg-gradient-to-br ${color}
+                                    absolute inset-0 rounded-xl bg-linear-to-br ${color}
                                     opacity-0 group-hover:opacity-100 transition-opacity duration-300
                                     -z-10 blur-sm
                                   `}
@@ -370,7 +370,7 @@ export default function Projects() {
                                 {/* Project Image with Icon Hover Effect */}
                                 {project.image && (
                                   <div
-                                    className="relative h-64 w-full bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                                    className="relative h-64 w-full bg-linear-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
                                     {/* Background Image - Blurred by default, unblurs on hover */}
                                     <Image
                                       src={project.image}
@@ -506,7 +506,7 @@ export default function Projects() {
                                 <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
                                   <div
                                     className={`
-                                      absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+                                      absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent
                                       -translate-x-full group-hover:translate-x-full
                                       transition-transform duration-1000
                                     `}
@@ -531,7 +531,7 @@ export default function Projects() {
                           border-2 border-zinc-200 dark:border-zinc-700
                           shadow-lg hover:shadow-xl
                           transition-all duration-300
-                          hover:scale-110 hover:bg-gradient-to-br hover:${color}
+                          hover:scale-110 hover:bg-linear-to-br hover:${color}
                           hover:border-transparent hover:text-white
                           z-10
                           group/btn
@@ -549,7 +549,7 @@ export default function Projects() {
                           border-2 border-zinc-200 dark:border-zinc-700
                           shadow-lg hover:shadow-xl
                           transition-all duration-300
-                          hover:scale-110 hover:bg-gradient-to-br hover:${color}
+                          hover:scale-110 hover:bg-linear-to-br hover:${color}
                           hover:border-transparent hover:text-white
                           z-10
                           group/btn
@@ -572,7 +572,7 @@ export default function Projects() {
                           className={`
                             h-2 rounded-full transition-all duration-300
                             ${carouselIndexes[group.category] === idx
-                            ? `w-8 bg-gradient-to-r ${color}`
+                            ? `w-8 bg-linear-to-r ${color}`
                             : 'w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
                           }
                           `}
@@ -630,24 +630,6 @@ export default function Projects() {
               }
           }
 
-          .animate-fade-in {
-              animation: fade-in 0.6s ease-out;
-          }
-
-          .animate-slide-up {
-              animation: slide-up 0.6s ease-out;
-          }
-
-          .animate-scale-in {
-              animation: scale-in 0.5s ease-out;
-          }
-
-          .line-clamp-3 {
-              display: -webkit-box;
-              -webkit-line-clamp: 3;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-          }
       `}</style>
     </div>
   );
