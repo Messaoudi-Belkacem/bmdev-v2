@@ -157,24 +157,33 @@ export default function Contact() {
 								/>
 							</div>
 
-							{/* Subject Dropdown */}
-							<div>
-								<label htmlFor="subject" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-									Subject
-								</label>
+						{/* Subject Dropdown */}
+						<div>
+							<label htmlFor="subject" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+								Subject
+							</label>
+							<div className="relative">
 								<select
 									id="subject"
 									name="subject"
 									value={formData.subject}
 									onChange={handleChange}
-									className="w-full px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all"
+									className="w-full px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all appearance-none cursor-pointer hover:border-blue-400 dark:hover:border-blue-500"
 								>
-									<option value="Job Opportunity">Job Opportunity</option>
-									<option value="Freelance Project">Freelance Project</option>
-									<option value="Collaboration">Collaboration</option>
-									<option value="Other">Other</option>
+									<option value="Job Opportunity">💼 Job Opportunity</option>
+									<option value="Freelance Project">🚀 Freelance Project</option>
+									<option value="Collaboration">🤝 Collaboration</option>
+									<option value="General Inquiry">💬 General Inquiry</option>
+									<option value="Consulting">🎯 Consulting</option>
+									<option value="Other">📧 Other</option>
 								</select>
+								<div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+									<svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+									</svg>
+								</div>
 							</div>
+						</div>
 
 							{/* Message Field */}
 							<div>
