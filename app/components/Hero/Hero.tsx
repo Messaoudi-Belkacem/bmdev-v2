@@ -126,13 +126,13 @@ export default function Hero() {
 						<Mail className="w-5 h-5" />
 					</a>
 				</div>
+			</div>
 
-				{/* Scroll Indicator */}
-				<div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-					<div className="flex flex-col items-center gap-2 text-zinc-400 dark:text-zinc-600">
-						<span className="text-xs font-medium">Scroll to explore</span>
-						<ArrowDown className="w-4 h-4" />
-					</div>
+			{/* Scroll Indicator - positioned relative to viewport */}
+			<div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+				<div className="flex flex-col items-center gap-2 text-zinc-400 dark:text-zinc-600">
+					<span className="text-xs font-medium">Scroll to explore</span>
+					<ArrowDown className="w-4 h-4" />
 				</div>
 			</div>
 
