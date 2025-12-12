@@ -1,0 +1,15 @@
+{
+  "id": "new-project",
+  "title": "New Project",
+  "description": "Project description...",
+  "category": "Web",
+  "technologies": ["React", "TypeScript"],
+  "features": ["Feature 1", "Feature 2"],
+  "status": "in-development",
+  "image": "/path/to/image.png",
+  "icon": "/path/to/icon.svg",
+  "github": "https://github.com/...",
+  "demo": "https://demo-link.com",
+  "date": "2024-12",
+  "featured": true
+}

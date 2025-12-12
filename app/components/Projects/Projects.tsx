@@ -3,6 +3,9 @@
 import {Brain, ChevronLeft, ChevronRight, Globe, Smartphone, Terminal} from "lucide-react";
 import {useState} from "react";
 import Image, {type StaticImageData} from "next/image";
+import projectsData from "../../data/projects.json";
+
+// Import static images for projects that use them
 import unipathLogo from "../../assets/logo-unipath.svg";
 import unipathImage from "../../assets/pictures/unipath-image.png";
 import homeSeekerLogo from "../../assets/logo-home-seeker.svg";
@@ -17,6 +20,7 @@ import myPdfSummarizerImage from "../../assets/pictures/my-pdf-summarizer-image.
 import myPdfSummarizerLogo from "../../assets/logo-my-pdf-summarizer.svg";
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -25,8 +29,10 @@ interface Project {
   status: "completed" | "in-development" | "coming-soon";
   image?: string | StaticImageData;
   icon?: string | StaticImageData;
-  github?: string;
-  demo?: string;
+  github?: string | null;
+  demo?: string | null;
+  date: string;
+  featured: boolean;
 }
 
 export default function Projects() {
@@ -38,204 +44,29 @@ export default function Projects() {
     "Scripts": 0
   });
 
-  const projects: Project[] = [
-    {
-      title: "HomeSeeker",
-      description: "An Android app developed as a school project to simplify finding and managing home listings. Built with Jetpack Compose, it delivers a responsive and user-friendly interface. I independently implemented the backend using Java Spring and MySQL, focusing on efficient and scalable data management.",
-      category: "Mobile",
-      technologies: ["Android", "Jetpack Compose", "Java Spring", "MySQL"],
-      features: [
-        "User Authentication: Secure login and registration system",
-        "Home Listings: Browse, search, and filter home listings",
-        "Favorites: Save favorite listings for easy access",
-        "Contact Sellers: Direct messaging system to communicate with sellers"
-      ],
-      status: "completed",
-      image: homeseekerImage,
-      icon: homeSeekerLogo
-    },
-    {
-      title: "MoviesDB",
-      description: "An Android app developed to explore modern Android tools and libraries while providing a seamless way to browse and manage movie data. Built with Jetpack Compose, the app features a modern, declarative UI and leverages Dagger Hilt for dependency injection, Retrofit and OkHttp for API interactions.",
-      category: "Mobile",
-      technologies: ["Kotlin", "Jetpack Compose", "Retrofit", "Room", "Dagger Hilt", "Coil", "Paging 3"],
-      features: [
-        "Browse and search latest movies from TMDB",
-        "Paging and smooth scrolling with remote data",
-        "Favorites and local caching with Room",
-        "Preferences persisted with DataStore"
-      ],
-      status: "completed",
-      image: moviesDBImage,
-      icon: moviesBDLogo
-    },
-    {
-      title: "Dalail Tarbawiyya",
-      description: "A production-grade Android application developed in 100% Kotlin to deliver curated educational guides and learning resources to a global audience. The app features fast content discovery with search and filters, bookmarking and progress tracking, offline-first access with background sync, push notifications for updates, and a fully localized UX with RTL support. Built with a clean, modular architecture focused on performance, accessibility, and maintainability.",
-      category: "Mobile",
-      technologies: ["Kotlin", "Jetpack Compose", "MVVM", "Coroutines", "Flow", "Room", "Hilt", "Retrofit", "Firebase"],
-      features: [
-        "Fast content discovery with search and filters",
-        "Bookmarking and progress tracking",
-        "Offline-first access with background sync",
-        "Push notifications for content updates",
-        "Full internationalization with RTL support",
-        "Clean Architecture with Repository pattern",
-        "Robust error handling and analytics",
-        "CI/CD pipeline with GitHub Actions"
-      ],
-      status: "completed",
-      image: dalailTarbawiyyaImage,
-      icon: dalailTarbawiyyaLogo
-    },
-    {
-      title: "YOUSTOCK Mobile & Backend",
-      description: "During my computer science internship at YOUINNOVATE, I designed and built a mobile version of YOUSTOCK—a stock management solution for supermarkets, pharmacies, and small businesses—to expand accessibility and usability on smartphones. I developed a RESTful backend API with Spring to bridge the mobile app and the existing system, ensuring secure data synchronization and business logic integration. Additionally, I created a companion Android app for in-store price-verification devices to enhance the customer shopping experience. The project involved tackling real-world challenges around offline-first architecture, inventory sync, role-based permissions, and device compatibility.",
-      category: "Mobile",
-      technologies: ["Kotlin", "Android SDK", "Spring Boot", "Spring Security", "PostgreSQL", "Retrofit", "Room", "Hilt", "JWT", "Docker"],
-      features: [
-        "RESTful backend API with Spring Framework",
-        "Secure data synchronization and business logic integration",
-        "Offline-first architecture with local persistence",
-        "Role-based access control (RBAC) with JWT authentication",
-        "Companion Android app for price-verification devices",
-        "Inventory sync across mobile and existing system",
-        "MVVM architecture with Repository pattern",
-        "Kotlin Coroutines & Flow for async operations",
-        "Barcode scanning integration (ZXing / ML Kit)",
-        "Production-ready with CI/CD pipelines"
-      ],
-      status: "completed",
-      image: youstockImage,
-      icon: youstockLogo
-    },
-    {
-      title: "UniPath Admin Panel for ENSSEA",
-      description: "A secure, TypeScript-based administrative panel for the National Higher School of Statistics and Applied Economics (ENSSEA) to centralize academic and operational data. The platform streamlines staff workflows with role-based permissions, intuitive data management (programs, cohorts, records), and analytics dashboards for informed decision-making. It emphasizes performance, accessibility, and maintainability through a modular, component-driven architecture and clean code practices.",
-      category: "Web",
-      technologies: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Recharts", "Axios", "JWT"],
-      features: [
-        "Role-based access control and secure authentication",
-        "Centralized academic and operational data management",
-        "Intuitive data management for programs, cohorts, and records",
-        "Analytics dashboards with data visualization",
-        "RESTful API integration with robust error-handling",
-        "Reusable UI components with form validation",
-        "Responsive design with accessibility best practices",
-        "Modular, component-driven architecture"
-      ],
-      status: "completed",
-      image: unipathImage,
-      icon: unipathLogo
-    },
-    {
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website showcasing my projects and skills. Built with Next.js 15 and TypeScript, featuring smooth animations and an intuitive user experience.",
-      category: "Web",
-      technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
-      features: [
-        "Responsive design across all devices",
-        "Dark mode support",
-        "Smooth animations and transitions",
-        "Optimized performance with Next.js"
-      ],
-      status: "in-development",
-      image: "/projects/portfolio.png",
-      icon: "/projects/icons/portfolio-icon.png"
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with modern features including product management, shopping cart, and secure payment processing.",
-      category: "Web",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      features: [],
-      status: "coming-soon",
-      image: "/projects/ecommerce.png",
-      icon: "/projects/icons/ecommerce-icon.png"
-    },
-    {
-      title: "PDF Summarization Web App",
-      description: "An AI-powered web application that automatically generates concise summaries from PDF documents using state-of-the-art Natural Language Processing and Deep Learning technologies. Implemented text chunking algorithm to handle documents exceeding model token limits, utilized transfer learning with pre-trained BART model for abstractive summarization, and optimized pipeline for efficient inference and memory management. Created end-to-end solution from file upload to summary generation.",
-      category: "AI & Data Science",
-      technologies: ["Python", "Gradio", "Hugging Face Transformers", "BART", "PyTorch", "PyPDF2"],
-      features: [
-        "Intelligent text extraction from PDF documents",
-        "Automatic summarization using transformer-based models",
-        "Handles long documents through smart text chunking",
-        "Clean, intuitive user interface with drag-and-drop functionality",
-        "Real-time processing with visual feedback",
-        "Transfer learning with pre-trained BART model for abstractive summarization",
-        "Optimized pipeline for efficient inference and memory management",
-        "Deployed on Hugging Face Spaces"
-      ],
-      status: "completed",
-      image: myPdfSummarizerImage,
-      icon: myPdfSummarizerLogo
-    },
-    {
-      title: "Leaf Edge Classification using Deep Learning",
-      description: "Developed a high-accuracy binary image classifier to distinguish between smooth and serrated leaf edges using transfer learning with ConvNeXt-Tiny architecture. Implemented progressive unfreezing strategy, training the classifier head first (8 epochs), then fine-tuning the backbone with differential learning rates (16 epochs). Applied data augmentation (random flips, rotations, crops, erasing) and mixed-precision training for optimization. Achieved comprehensive evaluation metrics (precision, recall, F1, AUC-ROC, Cohen's Kappa). Deployed as an interactive web application using Streamlit, enabling real-time inference with confidence scores and probability visualizations.",
-      category: "AI & Data Science",
-      technologies: ["Python", "PyTorch", "ConvNeXt", "Streamlit", "scikit-learn", "AMP"],
-      features: [
-        "Binary image classification for smooth vs serrated leaf edges",
-        "Transfer learning with ConvNeXt-Tiny architecture",
-        "Two-phase progressive unfreezing with differential learning rates (1e-5 for backbone, 1e-4 for classifier)",
-        "Advanced data augmentation (random flips, rotations, crops, erasing)",
-        "Mixed-precision training (AMP) for 2x faster training on GPU",
-        "Stratified train/val/test splitting to maintain class distribution",
-        "Comprehensive evaluation pipeline with confusion matrix, ROC curves, and classification reports",
-        "Real-time inference with confidence scores and probability visualizations",
-        "Production-ready Streamlit web application for deployment"
-      ],
-      status: "completed",
-      image: "/projects/leaf-classification.png",
-      icon: "/projects/icons/leaf-icon.png"
-    },
-    {
-      title: "Car Detection System with Deep Residual CNN",
-      description: "Developed an end-to-end binary image classification system to detect vehicles in images using a custom Residual Convolutional Neural Network (ResNet-inspired architecture). The project demonstrates proficiency in deep learning model development, training optimization, and deployment. Designed and implemented a 5-layer ResidualBlock CNN architecture with skip connections, achieving high accuracy. Engineered comprehensive data augmentation pipeline with 10+ transformations to improve model generalization and reduce overfitting. Optimized training process using AdamW optimizer with OneCycleLR scheduling, BCELoss, and dropout regularization.",
-      category: "AI & Data Science",
-      technologies: ["Python", "PyTorch", "Streamlit", "Computer Vision", "ResNet", "Deep Learning"],
-      features: [
-        "Custom ResNet-style architecture (3→32→64→128→256→512 channels) with 5 residual blocks",
-        "Skip connections for improved gradient flow and training stability",
-        "Comprehensive data augmentation: random flips, rotations, perspective warping, color jittering",
-        "AdamW optimizer with OneCycleLR scheduling (0.00075-0.00085 learning rate range)",
-        "BCELoss with dropout regularization (0.5-0.7) and early stopping",
-        "Batch normalization and MaxPooling layers for feature extraction",
-        "Trained for 30 epochs with batch size 32 and dynamic learning rate scheduling",
-        "ImageNet-style normalization with 224×224 input resolution",
-        "Binary classification (car/no-car) with 80/20 train-validation split",
-        "Thorough evaluation with accuracy, precision, recall, F1-score, and confusion matrix",
-        "Overfitting monitoring through training/validation gap analysis",
-        "Interactive Streamlit web application with real-time image upload and prediction"
-      ],
-      status: "completed",
-      image: "/projects/car-detection.png",
-      icon: "/projects/icons/car-icon.png"
-    },
-    {
-      title: "Predictive Analytics Dashboard",
-      description: "A machine learning powered dashboard for data visualization and predictive analytics using Python and modern ML libraries.",
-      category: "AI & Data Science",
-      technologies: ["Python", "PyTorch", "Pandas", "scikit-learn"],
-      features: [],
-      status: "coming-soon",
-      image: "/projects/analytics.png",
-      icon: "/projects/icons/analytics-icon.png"
-    },
-    {
-      title: "Automation Scripts",
-      description: "Collection of automation scripts for workflow optimization, data processing, and system management tasks.",
-      category: "Scripts",
-      technologies: ["Python", "Bash", "Node.js"],
-      features: [],
-      status: "coming-soon",
-      image: "/projects/scripts.png",
-      icon: "/projects/icons/scripts-icon.png"
-    }
-  ];
+  // Map to resolve static image imports
+  const imageMap: Record<string, StaticImageData> = {
+    "/assets/pictures/unipath-image.png": unipathImage,
+    "/assets/logo-unipath.svg": unipathLogo,
+    "/assets/pictures/home-seeker-image.png": homeseekerImage,
+    "/assets/logo-home-seeker.svg": homeSeekerLogo,
+    "/assets/pictures/moviesdb-image.png": moviesDBImage,
+    "/assets/logo-moviesdb.svg": moviesBDLogo,
+    "/assets/pictures/dalail-tarbawiyya-image.png": dalailTarbawiyyaImage,
+    "/assets/logo-dalail-tarbawiyya.svg": dalailTarbawiyyaLogo,
+    "/assets/pictures/youstock-mobile-image.png": youstockImage,
+    "/assets/logo-youstock-mobile.svg": youstockLogo,
+    "/assets/pictures/my-pdf-summarizer-image.png": myPdfSummarizerImage,
+    "/assets/logo-my-pdf-summarizer.svg": myPdfSummarizerLogo,
+  };
+
+  // Transform JSON data to use static imports where available
+  const projects: Project[] = projectsData.map((project) => ({
+    ...project,
+    status: project.status as "completed" | "in-development" | "coming-soon",
+    image: project.image && imageMap[project.image] ? imageMap[project.image] : project.image,
+    icon: project.icon && imageMap[project.icon] ? imageMap[project.icon] : project.icon,
+  }));
 
   const categoryIcons = {
     Mobile: Smartphone,
