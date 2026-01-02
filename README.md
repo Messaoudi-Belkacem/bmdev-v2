@@ -1,9 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BMDev Portfolio v2 🚀
 
-## Getting Started
+A modern, performant portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. This project showcases my work as a full-stack developer with a focus on mobile and web development.
 
-First, run the development server:
+## ✨ Features
 
+- **Modern Tech Stack**: Built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS 4
+- **Smooth Animations**: Framer Motion for fluid, engaging animations
+- **Responsive Design**: Mobile-first approach with a clean, minimalist aesthetic
+- **Dynamic Projects**: JSON-based project data structure for easy maintenance
+- **Interactive Components**: Expandable project cards, smooth scrolling, and section navigation
+- **Contact Form**: Integrated contact form for reaching out
+- **Tech Stack Showcase**: Visual display of technologies and tools I work with
+- **Dark Mode Ready**: Modern UI with support for dark themes
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org) with App Router
+- **UI Library**: [React 19](https://react.dev)
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev), [React Icons](https://react-icons.github.io/react-icons/), [@icons-pack/react-simple-icons](https://www.npmjs.com/package/@icons-pack/react-simple-icons)
+- **UI Components**: [Radix UI](https://www.radix-ui.com)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 20+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/bmdev-v2.git
+cd bmdev-v2
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,80 +58,116 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Edit pages by modifying files in the `app/` directory
+- The page auto-updates as you edit files
+- Add new projects by updating `app/data/projects.json`
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+bmdev-v2/
+├── app/
+│   ├── components/
+│   │   ├── Header/          # Navigation with smooth scroll
+│   │   ├── Hero/            # Landing section with CTA
+│   │   ├── Tech/            # Technology stack showcase
+│   │   ├── Projects/        # Project showcase with filtering
+│   │   ├── About/           # About me section
+│   │   ├── Contact/         # Contact form
+│   │   └── Footer/          # Footer with social links
+│   ├── data/
+│   │   └── projects.json    # Project data (easy to update!)
+│   ├── assets/              # Images, icons, and logos
+│   ├── layout.tsx           # Root layout
+│   ├── page.tsx             # Home page
+│   └── globals.css          # Global styles
+├── components/
+│   └── ui/                  # Reusable UI components (shadcn/ui)
+├── lib/
+│   └── utils.ts             # Utility functions
+└── public/                  # Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dynamic Project Management
+Projects are managed through a simple JSON file (`app/data/projects.json`), making it easy to:
+- Add new projects without touching the code
+- Update project details, technologies, and status
+- Control which projects are featured
+- Organize projects by category (Mobile, Web, Desktop, etc.)
 
-## Deploy on Vercel
+### Smooth Animations
+All interactions feature smooth, performant animations using Framer Motion:
+- Page transitions
+- Project card expansions
+- Scroll-triggered animations
+- Interactive hover effects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Responsive & Accessible
+- Mobile-first responsive design
+- Semantic HTML structure
+- ARIA labels for screen readers
+- Keyboard navigation support
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Deployment
 
+### Deploy on Vercel (Recommended)
 
-## Structure Overview
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
 
-project-root/
-├─ `package.json`                # scripts: start, build, test, lint
-├─ `tsconfig.json`
-├─ `public/`
-│  └─ `index.html`
-└─ `src/`
-├─ `index.tsx`                # app bootstrap, ReactDOM.render
-├─ `App.tsx`                  # single page routing via sections + context (theme)
-├─ `app.css`                  # global styles / CSS variables
-├─ `assets/`
-│  ├─ `images/`               # project thumbnails, avatar
-│  └─ `icons/`
-├─ `components/`
-│  ├─ `Header/`
-│  │  ├─ `Header.tsx`         # sticky nav, smooth scroll, theme toggle
-│  │  └─ `Header.module.css`
-│  ├─ `Hero/`
-│  │  └─ `Hero.tsx`           # intro, CTA to Projects / Contact
-│  ├─ `Projects/`
-│  │  ├─ `Projects.tsx`       # grid of ProjectCard
-│  │  └─ `ProjectCard.tsx`
-│  ├─ `About/`
-│  │  └─ `About.tsx`
-│  ├─ `Contact/`
-│  │  └─ `Contact.tsx`        # form (Netlify/emailjs/SMTP)
-│  ├─ `Footer/`
-│  │  └─ `Footer.tsx`
-│  └─ `UI/`
-│     ├─ `Modal.tsx`          # project details
-│     └─ `Button.tsx`
-├─ `hooks/`
-│  └─ `useScrollSpy.ts`       # highlight active section
-├─ `context/`
-│  └─ `ThemeContext.tsx`      # dark/light
-├─ `models/`
-│  └─ `project.ts`            # types / interfaces
-├─ `data/`
-│  └─ `projects.ts`           # static project list or fetched data
-└─ `tests/`
-├─ `App.test.tsx`
-└─ `components/Projects.test.tsx`
+1. Push your code to GitHub
+2. Import your repository on Vercel
+3. Vercel will automatically detect Next.js and configure the build
+4. Your site will be live in minutes!
 
-Example key files (templates):
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-`src/index.tsx`
-```tsx
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
-import './app.css';
+## 📝 Adding New Projects
 
-createRoot(document.getElementById('root')!).render(<App />);
+Simply edit `app/data/projects.json` and add a new project object:
 
+```json
+{
+  "id": "project-id",
+  "title": "Project Title",
+  "description": "Project description...",
+  "category": "Mobile",
+  "technologies": ["React", "TypeScript", "Node.js"],
+  "features": ["Feature 1", "Feature 2"],
+  "status": "completed",
+  "image": "/assets/pictures/project-image.png",
+  "icon": "/assets/logo-project.svg",
+  "github": "https://github.com/username/repo",
+  "demo": "https://demo-url.com",
+  "date": "2024-01",
+  "featured": true
+}
+```
+
+## 🔧 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contact
+
+Feel free to reach out if you have any questions or want to collaborate!
+
+- Email: wailmessaoudi806@gmail.com
+- GitHub: [Your GitHub](https://github.com/yourusername)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+
+---
+
+Built with ♥ & Next.js
